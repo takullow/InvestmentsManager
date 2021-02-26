@@ -14,5 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
+
+Route::get('login', function () {
+    return view('login');
+})->name('login');
+
+Route::prefix('mypage')->name('mypage.')->namespace('App\Http\Controllers')->group(function () {
+    Route::post('index', function () {
+        return view('mypage');
+    })->name('index');
+
+    Route::post('login', 'MypageController@login')->name('login');
+});
+

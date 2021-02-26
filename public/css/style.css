@@ -1,0 +1,22 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+}
+header {
+    height: 50px;
+}
+div {
+    display: flex;
+    flex: 1;
+}
+main {
+    flex: 1;
+}
+nav {
+    width: 100px;
+}
+footer {
+    height: 50px;
+}
