@@ -7,6 +7,10 @@ body {
 header {
     height: 50px;
 }
+header div a {
+    position: absolute;
+    right: 10;
+}
 div {
     display: flex;
     flex: 1;

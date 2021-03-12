@@ -14,18 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('mypage.index');
 });
 
-Route::get('login', function () {
-    return view('login');
-})->name('login');
+Route::prefix('login')->name('login.')->namespace('App\Http\Controllers')->group(function () {
+    Route::get('', 'LoginController@login')->name('index');
+    Route::post('execute', 'LoginController@executeLogin')->name('execute');
+});
+
+Route::prefix('logout')->name('logout.')->namespace('App\Http\Controllers')->group(function () {
+    Route::get('', 'LoginController@logout')->name('index');
+    Route::post('execute', 'LoginController@executeLogout')->name('execute');
+});
 
 Route::prefix('mypage')->name('mypage.')->namespace('App\Http\Controllers')->group(function () {
-    Route::post('index', function () {
-        return view('mypage');
-    })->name('index');
-
-    Route::post('login', 'MypageController@login')->name('login');
+    Route::match(['GET', 'POST'], 'top', 'MypageController@top')->name('top');
 });
-

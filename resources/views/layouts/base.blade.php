@@ -2,7 +2,7 @@
     <head lang="ja">
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <script src="{{ asset('js/hoge.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
     </head>
     <body>
         <header>
